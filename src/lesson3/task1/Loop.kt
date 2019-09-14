@@ -1,6 +1,7 @@
 @file:Suppress("UNUSED_PARAMETER")
 package lesson3.task1
 
+import kotlin.math.pow
 import kotlin.math.sqrt
 
 /**
@@ -159,8 +160,17 @@ fun cos(x: Double, eps: Double): Double = TODO()
  *
  * Использовать операции со строками в этой задаче запрещается.
  */
-fun revert(n: Int): Int = TODO()
-
+fun revert(n: Int): Int {
+    var n2 = 0
+    var n1 = n
+    while (n1 > 0) {
+        var digit = n1 % 10
+        n1 = n1 / 10
+        n2 = n2 *10
+        n2 = n2 + digit
+    }
+    return n2
+}
 /**
  * Средняя
  *
