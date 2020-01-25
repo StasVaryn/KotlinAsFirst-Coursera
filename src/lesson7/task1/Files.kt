@@ -71,8 +71,19 @@ fun countSubstrings(inputName: String, substrings: List<String>): Map<String, In
  *
  */
 fun sibilants(inputName: String, outputName: String) {
-    TODO()
+    val input = File(inputName).bufferedReader()
+    val output = File(outputName).bufferedWriter()
+    val map = mapOf("ы" to "и", "Ы" to "И", "я" to "а", "Я" to "А", "ю" to "у", "Ю" to "У")
+    val vowels = "ыЫяЯюЮ"
+    val consonants = "жЖчЧшШщЩ"
+    var prev = ' '
+    for (letter in input.readText()) {
+        if (letter in vowels && prev in consonants) output.append(map["$letter"]) else output.append(letter)
+        prev = letter
+    }
+    output.close()
 }
+
 
 /**
  * Средняя
